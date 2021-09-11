@@ -49,34 +49,34 @@ public class Main {
                 "d) I spent it at work. ");
         String answerTwo = Input.nextLine();
         System.out.println("Which best describes you?(Please Enter: 'a' 'b' 'c' or 'd'.)\n" +
-                "a) Authentic. (WATER)\n" +
-                "b) Relaxed. (EARTH)\n" +
-                "c) Driven. (FIRE) \n" +
-                "d) Reliable. (AIR)");
+                "a) Authentic. \n" +
+                "b) Relaxed. \n" +
+                "c) Driven. \n" +
+                "d) Reliable. ");
         String answerThree = Input.nextLine();
         System.out.println("How would you build a fire?(Please Enter: 'a' 'b' 'c' or 'd'.)\n" +
-                "a) I would rub two sticks together. (WATER) \n" +
-                "b) I would use matches. (EARTH)\n" +
-                "c) Gasoline solves everything. (FIRE)\n" +
-                "d) I would use a fire starter. (AIR)");
+                "a) I would rub two sticks together.\n" +
+                "b) I would use matches.\n" +
+                "c) Gasoline solves everything. \n" +
+                "d) I would use a fire starter.");
         String answerFour = Input.nextLine();
         System.out.println("What movie genre do you watch most often?(Please Enter: 'a' 'b' 'c' or 'd'.)\n" +
-                "a) Horror (WATER)\n" +
-                "b) Rom-com (EARTH)\n" +
-                "c) Action/Adventure (FIRE)\n" +
-                "d) Documentary (AIR)");
+                "a) Horror \n" +
+                "b) Rom-com \n" +
+                "c) Action/Adventure \n" +
+                "d) Documentary");
         String answerFive = Input.nextLine();
         System.out.println("What happens to your soul when you die?(Please Enter: 'a' 'b' 'c' or 'd'.)\n" +
-                "a) I believe it goes to heaven. (EARTH)\n" +
-                "b) I believe in reincarnation. (WATER)\n" +
-                "c) I have no idea. (AIR)\n" +
-                "d) I hope I get to go to space. (FIRE)");
+                "a) I believe in reincarnation. \n" +
+                "b) I believe it goes to heaven. \n" +
+                "c) I hope I get to go to space. \n" +
+                "d) I have no idea.");
         String answerSixth = Input.nextLine();
         System.out.println("Which describes your soul best?(Please Enter: 'a' 'b' 'c' or 'd'.)\n" +
-                "a) Unique (AIR)\n" +
-                "b) Free (FIRE)\n" +
-                "c) Kind (WATER)\n" +
-                "d) Old (EARTH)");
+                "a) Kind \n" +
+                "b) Old \n" +
+                "c) Free \n" +
+                "d) Unique");
         //Score calculation
         String answerSeventh = Input.nextLine();
         int aCount = 0;
@@ -177,6 +177,8 @@ public class Main {
         } else if (dCount > aCount && dCount > bCount && dCount > cCount) {
             System.out.println("Your Results are in:\nPersonality: " + Elements.AIR + " (Social, Objective, " +
                     "Communicator and Observer.\nBoxing Style: " + BoxerStyle.OUT_BOXER +"\nTraining Plan: " + TrainingPlan.ALI101);
+        } else if ( aCount == bCount || aCount == cCount || aCount == dCount || bCount == cCount || bCount == dCount ||  cCount == dCount) {
+            System.out.println("Your Results are in:\n");
         }
     }
 }
