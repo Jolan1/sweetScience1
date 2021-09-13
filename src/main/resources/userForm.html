@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+    <script>
+                function addUser(){
+                const name = document.getElementById('name');
+                const dob = document.getElementById('dob');
+                const email = document.getElementById('email');
+                const boxingStyle = document.getElementById('boxingStyle');
+
+                const userJson = JSON.stringify({
+                  name: name.value,
+                  dob: dob.value,
+                  email: email.value,
+                });
+
+                const responseField = document.getElementById('responseField');
+                responseField.innerHTML = userJson;
+            }
+        </script>
+
+
+</head>
+
+
+<body>
+<h2 id="userDetails">Your Details</h2>
+<form>
+    Name: <input id="name"><br>
+    DOB: <input id="dob"><br>
+    Email: <input id="email"><br>
+    Boxing Style: <input id="boxingStyle"><br>
+</form>
+</body>
+</html>
+
+
+
+
