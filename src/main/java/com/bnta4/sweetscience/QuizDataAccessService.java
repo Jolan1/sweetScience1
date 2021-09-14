@@ -7,14 +7,19 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.time.LocalDate;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 @Repository
 public class QuizDataAccessService {
 
     private List<Quiz.Question> quizQuestions;
+    private Map<String, Integer> answerFrequency;
 
     public QuizDataAccessService() {
+
+        answerFrequency = new HashMap<>();
 
          quizQuestions =
                  List.of(
@@ -73,19 +78,28 @@ public class QuizDataAccessService {
     }
 
     public void insertQuestionAnswer(int question_number, Quiz.Answer answer) {
-        try {
-            File surveyAnswers = new File("src/main/resources/quiz.txt");
-            FileWriter myWriter = new FileWriter("quiz.txt", true);
-            myWriter.write(quizQuestions.get(question_number- 1) + "\n");
-            myWriter.write(answer.id + "\n");
-            myWriter.close();
-        } catch (IOException e) {
-            System.out.println("An Error has occurred");
-            e.printStackTrace();
-        }
+        //collect user input
+        //store multi value pairs into map
+        // Two methods -
+
+
+
+
+//        try {
+//            File surveyAnswers = new File("src/main/resources/quiz.txt");
+//            FileWriter myWriter = new FileWriter("quiz.txt", true);
+//            myWriter.write(question_number + "\n");
+//            myWriter.write(answer.getId() + "\n");
+//            myWriter.close();
+//        } catch (IOException e) {
+//            System.out.println("An Error has occurred");
+//            e.printStackTrace();
+//        }
     }
 
-    public static List<Quiz.Question> selectQuestions() {
-        return quizQuestions;
-    }
+//    public static List<Quiz.Question> selectQuestions() {
+//        return quizQuestions;
+//    }
 }
+// Maps = Key value pairs
+//Keep track of

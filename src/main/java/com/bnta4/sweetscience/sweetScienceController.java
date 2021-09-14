@@ -32,13 +32,13 @@ public class sweetScienceController {
     }
 
     @PostMapping ("question/{number}")
-    public void userAnswers(@PathVariable int number, @RequestBody Quiz.Answer answer) {
-        quizDataAccessService.insertQuestionAnswer(number, answer);
+    public void userAnswers(@PathVariable int number, @RequestBody Quiz.Answer inputAnswer) {
+        quizDataAccessService.insertQuestionAnswer(number, inputAnswer);
     }
 
     @GetMapping("quizResult")
     public String getResults(@PathVariable int number){
-
+    return "hello";
     }
 
 

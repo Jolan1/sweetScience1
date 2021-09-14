@@ -23,9 +23,9 @@ public class QuizService {
 //        }
     }
 
-    public List<> getQuestions
-//
-//    public Movie getMovie(String movieName) {
+//    public List<> getQuestions
+////
+////    public Movie getMovie(String movieName) {
 //        return movieDataAccessService.selectAllMoviesMovies()
 
 }
