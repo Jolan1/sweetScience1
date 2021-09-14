@@ -1,90 +1,27 @@
 package com.bnta4.sweetscience;
 
-import com.bnta4.sweetscience.boxerStyle.BoxerStyle;
-import com.bnta4.sweetscience.boxerStyle.Elements;
-import com.bnta4.sweetscience.boxerStyle.TrainingPlan;
+import org.springframework.web.bind.annotation.PathVariable;
 
-import java.util.Scanner;
+import java.util.List;
 
-import static java.lang.Thread.sleep;
+public class QuizResults {
 
-public class Main {
+    public List<Quiz.Question> quizResults() {
 
-    //Coloured text in console
-    public static final String ANSI_RESET = "\u001B[0m";
-    public static final String YELLOW_BOLD_BRIGHT = "\033[1;93m";// YELLOW1
-    public static final String BLUE_BOLD_BRIGHT = "\033[1;94m";  // BLUE
-    public static final String BLACK_BOLD_BRIGHT = "\033[1;90m"; // BLACK
-    public static final String YELLOW_BACKGROUND_BRIGHT = "\033[0;103m";// YELLOW
-    public static final String BLUE_BACKGROUND_BRIGHT = "\033[0;104m";// BLUE
-    public static final String RED_BACKGROUND_BRIGHT = "\033[0;101m";// RED
+        return QuizDataAccessService.selectQuestions();
 
-    public static void main(String[] args) throws InterruptedException {
+    }
 
-        //Personality Test
-
-        Scanner Input = new Scanner(System.in);
-        System.out.println(BLUE_BACKGROUND_BRIGHT + BLACK_BOLD_BRIGHT +
-                "----------------------------------------------------SweetScience" +
-                "----------------------------------------------------"+ ANSI_RESET);
-        sleep(1000);
-        System.out.println( "Hi, welcome to the sweetScience portal, a " +
-                "place for all boxers to discover their boxing " +
-                "style and train accordingly! " );
-        sleep(1000);
-        System.out.println("What is your name?");
-        String userName = Input.nextLine();
-        System.out.println("Hi " + userName + ", lets discover your boxing style...");
-        sleep(1000);
-        System.out.println("\nWould you rather meditate or pray?(Please Enter: 'a' 'b' 'c' or 'd'.)\n" +
-                "a) Both. \n" +
-                "b) Meditate. \n" +
-                "c) Pray. \n" +
-                "d) I'm more of a deep thinker.");
-        String answerOne = Input.nextLine();
-        System.out.println("How did you spend your last birthday?(Please Enter: 'a' 'b' 'c' or 'd'.)\n" +
-                "a) I spent it with family. \n" +
-                "b) I spent the day alone. \n" +
-                "c) I spent it with friends. \n" +
-                "d) I spent it at work. ");
-        String answerTwo = Input.nextLine();
-        System.out.println("Which best describes you?(Please Enter: 'a' 'b' 'c' or 'd'.)\n" +
-                "a) Authentic. (WATER)\n" +
-                "b) Relaxed. (EARTH)\n" +
-                "c) Driven. (FIRE) \n" +
-                "d) Reliable. (AIR)");
-        String answerThree = Input.nextLine();
-        System.out.println("How would you build a fire?(Please Enter: 'a' 'b' 'c' or 'd'.)\n" +
-                "a) I would rub two sticks together. (WATER) \n" +
-                "b) I would use matches. (EARTH)\n" +
-                "c) Gasoline solves everything. (FIRE)\n" +
-                "d) I would use a fire starter. (AIR)");
-        String answerFour = Input.nextLine();
-        System.out.println("What movie genre do you watch most often?(Please Enter: 'a' 'b' 'c' or 'd'.)\n" +
-                "a) Horror (WATER)\n" +
-                "b) Rom-com (EARTH)\n" +
-                "c) Action/Adventure (FIRE)\n" +
-                "d) Documentary (AIR)");
-        String answerFive = Input.nextLine();
-        System.out.println("What happens to your soul when you die?(Please Enter: 'a' 'b' 'c' or 'd'.)\n" +
-                "a) I believe it goes to heaven. (EARTH)\n" +
-                "b) I believe in reincarnation. (WATER)\n" +
-                "c) I have no idea. (AIR)\n" +
-                "d) I hope I get to go to space. (FIRE)");
-        String answerSixth = Input.nextLine();
-        System.out.println("Which describes your soul best?(Please Enter: 'a' 'b' 'c' or 'd'.)\n" +
-                "a) Unique (AIR)\n" +
-                "b) Free (FIRE)\n" +
-                "c) Kind (WATER)\n" +
-                "d) Old (EARTH)");
-        //Score calculation
-        String answerSeventh = Input.nextLine();
+    public Quiz.Question getQuestion(@PathVariable int number) {
+        return quizQuestions.get(number - 1);
+    }
 
         int aCount = 0;
         int bCount = 0;
         int cCount = 0;
         int dCount = 0;
-        if (answerOne.equalsIgnoreCase("a")) {
+
+        if (Quiz.Question.Q1.equalsIgnoreCase("a")) {
             aCount++;
         } else if (answerOne.equalsIgnoreCase("b")) {
             bCount++;
@@ -181,4 +118,6 @@ public class Main {
                     "Communicator and Observer.\nBoxing Style: " + BoxerStyle.OUT_BOXER +"\nTraining Plan: " + TrainingPlan.ALI101);
         }
     }
+}
+
 }
