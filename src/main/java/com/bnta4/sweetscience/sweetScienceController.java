@@ -13,6 +13,12 @@ import org.springframework.web.bind.annotation.*;
 @RequestMapping(path = "api/sweetScience")
 public class sweetScienceController {
 
+    private QuizDataAccessService quizDataAccessService;
+
+    public sweetScienceController(QuizDataAccessService quizDataAccessService) {
+        this.quizDataAccessService = quizDataAccessService;
+    }
+
     @GetMapping
     public String sayHello() {
         System.out.println("Hello!");
@@ -24,6 +30,14 @@ public class sweetScienceController {
     public Quiz.Question getQuestion(@PathVariable int number) {
         return quizQuestions.get(number - 1);
     }
+
+    @PostMapping ("question/{number}")
+    public void userAnswers(@PathVariable int number, @RequestBody Quiz.Answer answer) {
+        quizDataAccessService.insertQuestionAnswer(number, answer);
+    }
+
+
+
 
     private List<Quiz.Question> quizQuestions =
             List.of(
