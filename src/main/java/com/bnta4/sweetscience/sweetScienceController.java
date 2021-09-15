@@ -1,6 +1,5 @@
 package com.bnta4.sweetscience;
 
-import com.bnta4.sweetscience.user.User;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -14,10 +13,36 @@ import org.springframework.web.bind.annotation.*;
 @RequestMapping(path = "api/sweetScience")
 public class sweetScienceController {
 
+    private QuizDataAccessService quizDataAccessService;
+    private QuizService quizService;
+
+    public sweetScienceController(QuizDataAccessService quizDataAccessService, QuizService quizService) {
+        this.quizDataAccessService = quizDataAccessService;
+        this.quizService = quizService;
+    }
+
+    @GetMapping
+    public String sayHello() {
+        System.out.println("Hello!");
+        return "Hello";
+
+    }
+
     @GetMapping("question/{number}")
     public Quiz.Question getQuestion(@PathVariable int number) {
         return quizQuestions.get(number - 1);
     }
+
+    @PostMapping ("question/{number}")
+    public void userAnswers(@PathVariable int number, @RequestBody Quiz.Answer inputAnswer) {
+        quizService.addNewAnswer(number, inputAnswer);
+    }
+
+    @GetMapping("quizResult")
+    public String getResults(){
+        return quizService.getResult();
+    }
+
 
     private List<Quiz.Question> quizQuestions =
             List.of(
@@ -73,16 +98,6 @@ public class sweetScienceController {
                                     new Quiz.Answer("Kind", "c"),
                                     new Quiz.Answer("Old", "d")
                             )));
-
-    @PostMapping("answer/{value}")
-    public String getAnswer(@PathVariable String value) {
-        return value;
-    }
-    //get value inputted into the questions
-//add these to a list
-//do the for loop through the list which does the calculation.
-//another link for 'finish' quiz -- should take you to create a login/ details page which saves details to a database.
-
 }
 
 
