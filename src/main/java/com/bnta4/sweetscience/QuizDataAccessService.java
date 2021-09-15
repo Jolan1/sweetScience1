@@ -21,6 +21,11 @@ public class QuizDataAccessService {
 
         answerFrequency = new HashMap<>();
 
+        answerFrequency.put("a", 0);
+        answerFrequency.put("b", 0);
+        answerFrequency.put("c", 0);
+        answerFrequency.put("d", 0);
+
          quizQuestions =
                  List.of(
                          new Quiz.Question("Would you rather meditate or pray?", "Q1",
@@ -77,29 +82,18 @@ public class QuizDataAccessService {
                                  )));
     }
 
-    public void insertQuestionAnswer(int question_number, Quiz.Answer answer) {
-        //collect user input
-        //store multi value pairs into map
-        // Two methods -
-
-
-
-
-//        try {
-//            File surveyAnswers = new File("src/main/resources/quiz.txt");
-//            FileWriter myWriter = new FileWriter("quiz.txt", true);
-//            myWriter.write(question_number + "\n");
-//            myWriter.write(answer.getId() + "\n");
-//            myWriter.close();
-//        } catch (IOException e) {
-//            System.out.println("An Error has occurred");
-//            e.printStackTrace();
-//        }
+    public Map<String,Integer> getAnswerFrequency(){
+        return answerFrequency;
     }
 
-//    public static List<Quiz.Question> selectQuestions() {
-//        return quizQuestions;
-//    }
+    public void insertQuestionAnswer(int question_number, Quiz.Answer answer) {
+            //collect user input
+            //store multi value pairs into map
+            // Two methods -
+            int count = answerFrequency.get(answer.getId());
+            count++;
+            answerFrequency.replace(answer.getId(), count);
+
+    }
+
 }
-// Maps = Key value pairs
-//Keep track of

@@ -14,9 +14,11 @@ import org.springframework.web.bind.annotation.*;
 public class sweetScienceController {
 
     private QuizDataAccessService quizDataAccessService;
+    private QuizService quizService;
 
-    public sweetScienceController(QuizDataAccessService quizDataAccessService) {
+    public sweetScienceController(QuizDataAccessService quizDataAccessService, QuizService quizService) {
         this.quizDataAccessService = quizDataAccessService;
+        this.quizService = quizService;
     }
 
     @GetMapping
@@ -33,12 +35,12 @@ public class sweetScienceController {
 
     @PostMapping ("question/{number}")
     public void userAnswers(@PathVariable int number, @RequestBody Quiz.Answer inputAnswer) {
-        quizDataAccessService.insertQuestionAnswer(number, inputAnswer);
+        quizService.addNewAnswer(number, inputAnswer);
     }
 
     @GetMapping("quizResult")
-    public String getResults(@PathVariable int number){
-    return "hello";
+    public String getResults(){
+        return quizService.getResult();
     }
 
 
