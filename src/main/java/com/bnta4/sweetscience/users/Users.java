@@ -57,16 +57,25 @@ public class Users {
     )
     private Integer age;
 
+    @Column(
+            name = "boxerType",
+            nullable = false,
+            columnDefinition = "TEXT"
+    )
+    private String boxerType;
+
 
 
     public Users(String firstName,
                 String lastName,
                 String email,
-                Integer age) {
+                Integer age,
+                String boxerType) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.email = email;
         this.age = age;
+        this.boxerType = boxerType;
     }
 
     public Users() {
@@ -113,6 +122,14 @@ public class Users {
         this.age = age;
     }
 
+    public String getBoxerType() {
+        return boxerType;
+    }
+
+    public void setBoxerType(String boxerType) {
+        this.boxerType = boxerType;
+    }
+
     @Override
     public String toString() {
         return "Users{" +
@@ -121,6 +138,7 @@ public class Users {
                 ", lastName='" + lastName + '\'' +
                 ", email='" + email + '\'' +
                 ", age=" + age +
+                ", boxerType='" + boxerType + '\'' +
                 '}';
     }
 }
