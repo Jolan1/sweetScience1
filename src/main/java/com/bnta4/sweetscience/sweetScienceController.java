@@ -1,5 +1,8 @@
 package com.bnta4.sweetscience;
 
+import com.bnta4.sweetscience.users.Users;
+import com.bnta4.sweetscience.users.UsersService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -15,6 +18,9 @@ public class sweetScienceController {
 
     private QuizDataAccessService quizDataAccessService;
     private QuizService quizService;
+
+    @Autowired
+    private UsersService usersService;
 
     public sweetScienceController(QuizDataAccessService quizDataAccessService, QuizService quizService) {
         this.quizDataAccessService = quizDataAccessService;
@@ -41,6 +47,12 @@ public class sweetScienceController {
     @GetMapping("quizResult")
     public String getResults(){
         return quizService.getResult();
+    }
+
+    @PostMapping("signUp")
+    public void signUp(@RequestBody Users newUser) {
+        System.out.println(newUser);
+        this.usersService.createUser(newUser);
     }
 
 
