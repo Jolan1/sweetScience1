@@ -17,14 +17,38 @@ public class QuizDataAccessService {
     private List<Quiz.Question> quizQuestions;
     private Map<String, Integer> answerFrequency;
 
+    //append answers to a list
+    //call the method to count and store in hashmap.
+
+    public void getAnswer(Quiz.Answer answer){
+        String answerList = new String();
+        answerList.concat(answer.getId());
+        characterCount(answerList);
+    }
+
+        public Object characterCount(String answerList){
+        Map<String, Integer> answerFrequency = new HashMap<>();
+        String[] splitAnswerList = answerList.split("");
+            for (String c: splitAnswerList){
+                c = c.trim();
+                if(answerFrequency.containsKey(c)){
+                    answerFrequency.put(c, answerFrequency.get(c)+1);
+                } else {
+                    answerFrequency.put(c, 1);
+                }
+            }
+          return answerFrequency;
+    }
+
+
     public QuizDataAccessService() {
 
-        answerFrequency = new HashMap<>();
-
-        answerFrequency.put("a", 0);
-        answerFrequency.put("b", 0);
-        answerFrequency.put("c", 0);
-        answerFrequency.put("d", 0);
+//        answerFrequency = new HashMap<>();
+//
+//        answerFrequency.put("a", 0);
+//        answerFrequency.put("b", 0);
+//        answerFrequency.put("c", 0);
+//        answerFrequency.put("d", 0);
 
          quizQuestions =
                  List.of(
@@ -86,14 +110,14 @@ public class QuizDataAccessService {
         return answerFrequency;
     }
 
-    public void insertQuestionAnswer(int question_number, Quiz.Answer answer) {
-            //collect user input
-            //store multi value pairs into map
-            // Two methods -
-            int count = answerFrequency.get(answer.getId());
-            count++;
-            answerFrequency.replace(answer.getId(), count);
-
-    }
+//    public void insertQuestionAnswer(int question_number, Quiz.Answer answer) {
+//            //collect user input
+//            //store multi value pairs into map
+//            // Two methods -
+//            int count = answerFrequency.get(answer.getId());
+//            count++;
+//            answerFrequency.replace(answer.getId(), count);
+//
+//    }
 
 }

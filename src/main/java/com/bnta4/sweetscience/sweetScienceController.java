@@ -27,12 +27,6 @@ public class sweetScienceController {
         this.quizService = quizService;
     }
 
-    @GetMapping
-    public String sayHello() {
-        System.out.println("Hello!");
-        return "Hello";
-
-    }
 
     @GetMapping("question/{number}")
     public Quiz.Question getQuestion(@PathVariable int number) {

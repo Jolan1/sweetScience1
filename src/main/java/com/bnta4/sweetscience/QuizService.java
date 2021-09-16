@@ -18,7 +18,7 @@ public class QuizService {
     }
 
     public void addNewAnswer(int question_number, Quiz.Answer answer) {
-        quizDataAccessService.insertQuestionAnswer(question_number, answer);
+        quizDataAccessService.getAnswer(answer);
 
     }
 
