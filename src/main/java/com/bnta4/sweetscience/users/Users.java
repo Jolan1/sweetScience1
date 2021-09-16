@@ -32,21 +32,21 @@ public class Users {
     @Column(
             name = "first_name",
             nullable = false,
-            columnDefinition = "TEXT"
+            columnDefinition = "VARCHAR"
     )
     private String firstName;
 
     @Column(
             name = "last_name",
             nullable = false,
-            columnDefinition = "TEXT"
+            columnDefinition = "VARCHAR"
     )
     private String lastName;
 
     @Column(
             name = "email",
             nullable = false,
-            columnDefinition = "TEXT"
+            columnDefinition = "VARCHAR"
     )
     private String email;
 
@@ -60,7 +60,7 @@ public class Users {
     @Column(
             name = "boxerType",
             nullable = false,
-            columnDefinition = "TEXT"
+            columnDefinition = "VARCHAR"
     )
     private String boxerType;
 
