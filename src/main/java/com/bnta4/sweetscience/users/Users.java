@@ -4,7 +4,7 @@ import javax.persistence.*;
 
 import static javax.persistence.GenerationType.SEQUENCE;
 
-@Entity(name = "Users")
+@Entity
 @Table(
         name = "users",
         uniqueConstraints = {
@@ -58,7 +58,7 @@ public class Users {
     private Integer age;
 
     @Column(
-            name = "boxerType",
+            name = "boxer_type",
             nullable = false,
             columnDefinition = "VARCHAR"
     )
