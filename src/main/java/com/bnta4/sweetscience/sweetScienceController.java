@@ -56,6 +56,36 @@ public class sweetScienceController {
     }
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
     private List<Quiz.Question> quizQuestions =
             List.of(
                     new Quiz.Question("Would you rather meditate or pray?", "Q1",
