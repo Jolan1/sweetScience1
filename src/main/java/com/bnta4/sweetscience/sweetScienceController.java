@@ -1,5 +1,8 @@
 package com.bnta4.sweetscience;
 
+import com.bnta4.sweetscience.quiz.Quiz;
+import com.bnta4.sweetscience.quiz.QuizDataAccessService;
+import com.bnta4.sweetscience.quiz.QuizService;
 import com.bnta4.sweetscience.users.Users;
 import com.bnta4.sweetscience.users.UsersService;
 import org.springframework.beans.factory.annotation.Autowired;

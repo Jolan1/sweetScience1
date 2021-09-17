@@ -1,11 +1,12 @@
-package com.bnta4.sweetscience;
+package com.bnta4.sweetscience.quiz;
 
 import com.bnta4.sweetscience.boxerStyle.BoxerStyle;
 import com.bnta4.sweetscience.boxerStyle.Elements;
 import com.bnta4.sweetscience.boxerStyle.TrainingPlan;
+import com.bnta4.sweetscience.quiz.Quiz;
+import com.bnta4.sweetscience.quiz.QuizDataAccessService;
 import org.springframework.stereotype.Service;
 
-import java.util.List;
 import java.util.Map;
 
 @Service

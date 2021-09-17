@@ -1,4 +1,4 @@
-package com.bnta4.sweetscience;
+package com.bnta4.sweetscience.quiz;
 
 import java.util.List;
 

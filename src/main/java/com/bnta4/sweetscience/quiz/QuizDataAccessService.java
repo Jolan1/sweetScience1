@@ -1,12 +1,8 @@
-package com.bnta4.sweetscience;
+package com.bnta4.sweetscience.quiz;
 
+import com.bnta4.sweetscience.quiz.Quiz;
 import org.springframework.stereotype.Repository;
 
-import java.io.File;
-import java.io.FileWriter;
-import java.io.IOException;
-import java.time.LocalDate;
-import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
