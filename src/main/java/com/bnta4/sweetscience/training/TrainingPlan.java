@@ -96,11 +96,13 @@ public class TrainingPlan {
     }
 
     public TrainingPlan(
+            Long id,
             String trainingPlanNumber,
             String boxerStyle,
             String boxerPerson,
             String element,
             String workOut) {
+        this.id = id;
         this.trainingPlanNumber = trainingPlanNumber;
         this.boxerStyle = boxerStyle;
         this.boxerPerson = boxerPerson;
